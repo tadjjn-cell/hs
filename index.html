@@ -17,7 +17,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #0a0a0f;
+            background: #0f1115;
             color: #ffffff;
             min-height: 100vh;
             overflow-x: hidden;
@@ -29,9 +29,9 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(10, 10, 15, 0.95);
+            background: rgba(15, 17, 21, 0.95);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
             padding: 1rem 2rem;
         }
 
@@ -46,7 +46,7 @@
         .logo {
             font-size: 1.8rem;
             font-weight: 900;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #00d4aa 0%, #00b4d8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -60,84 +60,21 @@
         }
 
         .nav-links a {
-            color: #a0a0b0;
+            color: #8a8f98;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
         }
 
         .nav-links a:hover {
-            color: #ffffff;
+            color: #00d4aa;
         }
 
-        /* Hero Section */
-        .hero {
-            padding: 10rem 2rem 5rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(102, 126, 234, 0.15) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(to right, #ffffff, #a0a0ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            color: #8888aa;
-            max-width: 600px;
-            margin: 0 auto 3rem;
-            line-height: 1.6;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: rgba(102, 126, 234, 0.1);
-            border: 1px solid rgba(102, 126, 234, 0.3);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            color: #667eea;
-            margin-bottom: 2rem;
-        }
-
-        /* Games Grid */
+        /* Games Section */
         .games-section {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 2rem 2rem 6rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: #8888aa;
-            font-size: 1.1rem;
-            margin-bottom: 4rem;
+            padding: 7rem 2rem 4rem;
         }
 
         .games-grid {
@@ -148,62 +85,62 @@
 
         /* Game Card */
         .game-card {
-            background: #12121a;
-            border-radius: 20px;
+            background: #181b22;
+            border-radius: 16px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
             position: relative;
         }
 
         .game-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.15);
-            border-color: rgba(102, 126, 234, 0.3);
+            transform: translateY(-6px);
+            box-shadow: 0 24px 64px rgba(0, 212, 170, 0.08);
+            border-color: rgba(0, 212, 170, 0.2);
         }
 
         .game-image {
             width: 100%;
-            height: 220px;
+            height: 200px;
             object-fit: cover;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .game-info {
-            padding: 1.8rem;
+            padding: 1.5rem;
         }
 
         .game-category {
             display: inline-block;
-            background: rgba(102, 126, 234, 0.15);
-            color: #667eea;
+            background: rgba(0, 212, 170, 0.08);
+            color: #00d4aa;
             padding: 0.3rem 0.8rem;
             border-radius: 6px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
             margin-bottom: 0.8rem;
         }
 
         .game-title {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 700;
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.5rem;
+            color: #f0f2f5;
         }
 
         .game-description {
-            color: #8888aa;
-            font-size: 0.9rem;
+            color: #6b7280;
+            font-size: 0.85rem;
             line-height: 1.6;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
         }
 
         .game-meta {
             display: flex;
             align-items: center;
             gap: 1rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             flex-wrap: wrap;
         }
 
@@ -211,24 +148,25 @@
             display: flex;
             align-items: center;
             gap: 0.4rem;
-            font-size: 0.8rem;
-            color: #6a6a80;
+            font-size: 0.78rem;
+            color: #4b5563;
         }
 
         .game-meta i {
-            color: #667eea;
+            color: #00d4aa;
+            font-size: 0.7rem;
         }
 
         /* Download Button */
         .download-btn {
             width: 100%;
-            padding: 1rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #fff;
+            padding: 0.9rem;
+            background: linear-gradient(135deg, #00d4aa 0%, #00b4d8 100%);
+            color: #0f1115;
             border: none;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 600;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
@@ -239,7 +177,7 @@
 
         .download-btn:hover {
             transform: scale(1.02);
-            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 8px 24px rgba(0, 212, 170, 0.3);
         }
 
         /* Platform Selection Modal */
@@ -250,8 +188,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.88);
+            backdrop-filter: blur(12px);
             z-index: 2000;
             align-items: center;
             justify-content: center;
@@ -262,20 +200,21 @@
         }
 
         .platform-modal {
-            background: #1a1a2e;
-            border-radius: 24px;
-            padding: 3rem;
-            max-width: 500px;
+            background: #1c1f27;
+            border-radius: 20px;
+            padding: 2.5rem;
+            max-width: 480px;
             width: 90%;
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 212, 170, 0.1);
             animation: modalIn 0.3s ease;
+            position: relative;
         }
 
         @keyframes modalIn {
             from {
                 opacity: 0;
-                transform: scale(0.9) translateY(20px);
+                transform: scale(0.92) translateY(16px);
             }
             to {
                 opacity: 1;
@@ -284,13 +223,15 @@
         }
 
         .platform-modal h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+            margin-bottom: 0.4rem;
+            color: #f0f2f5;
         }
 
         .platform-modal p {
-            color: #8888aa;
+            color: #6b7280;
             margin-bottom: 2rem;
+            font-size: 0.9rem;
         }
 
         .platform-options {
@@ -304,42 +245,43 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0.8rem;
-            padding: 1.5rem 2rem;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
+            gap: 0.7rem;
+            padding: 1.3rem 1.8rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 14px;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
             color: #ffffff;
-            min-width: 120px;
+            min-width: 110px;
         }
 
         .platform-option:hover {
-            background: rgba(102, 126, 234, 0.1);
-            border-color: rgba(102, 126, 234, 0.5);
-            transform: translateY(-4px);
+            background: rgba(0, 212, 170, 0.06);
+            border-color: rgba(0, 212, 170, 0.4);
+            transform: translateY(-3px);
         }
 
         .platform-option i {
-            font-size: 2.5rem;
-            color: #667eea;
+            font-size: 2.2rem;
+            color: #00d4aa;
         }
 
         .platform-option span {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
+            color: #d1d5db;
         }
 
         .close-modal {
             position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
+            top: 1.2rem;
+            right: 1.2rem;
             background: none;
             border: none;
-            color: #8888aa;
-            font-size: 1.5rem;
+            color: #6b7280;
+            font-size: 1.3rem;
             cursor: pointer;
             transition: color 0.3s;
         }
@@ -348,39 +290,31 @@
             color: #ffffff;
         }
 
-        .platform-modal {
-            position: relative;
-        }
-
         /* Footer */
         footer {
-            background: #0d0d14;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 3rem 2rem;
+            background: #0c0e12;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 2.5rem 2rem;
             text-align: center;
         }
 
         footer p {
-            color: #5a5a70;
-            font-size: 0.9rem;
+            color: #3b3f47;
+            font-size: 0.8rem;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
             .nav-links {
                 display: none;
             }
 
             .games-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .games-section {
+                padding: 6rem 1rem 3rem;
             }
 
             .platform-options {
@@ -404,18 +338,8 @@
         </div>
     </header>
 
-    <!-- Hero -->
-    <section class="hero">
-        <div class="hero-badge"><i class="fas fa-gamepad"></i> &nbsp;Premium Game Downloads</div>
-        <h1>Download the Best<br>Games for Free</h1>
-        <p>Get access to the latest and most popular games. Download instantly for PC, Android, and iOS platforms.</p>
-    </section>
-
-    <!-- Games Section -->
+    <!-- Games Section - Shows First -->
     <section class="games-section" id="games">
-        <h2 class="section-title">Featured Games</h2>
-        <p class="section-subtitle">Choose your next adventure from our top picks</p>
-
         <div class="games-grid">
 
             <!-- Game 1: Tomodachi Life -->
@@ -518,13 +442,12 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 GameVault. All rights reserved. | All game trademarks belong to their respective owners.</p>
+        <p>&copy; 2025 GameVault. All rights reserved.</p>
     </footer>
 
     <script>
         let currentGame = '';
 
-        // Download links for each game per platform
         const downloadLinks = {
             'Tomodachi Life: Living the Dream': {
                 pc: 'https://www.nintendo.com/us/store/products/tomodachi-life-living-the-dream-switch/',
@@ -568,29 +491,16 @@
             closePlatformModal();
         }
 
-        // Close modal on overlay click
         document.getElementById('platformOverlay').addEventListener('click', function(e) {
             if (e.target === this) {
                 closePlatformModal();
             }
         });
 
-        // Close modal on Escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closePlatformModal();
             }
-        });
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
         });
     </script>
 

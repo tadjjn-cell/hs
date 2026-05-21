@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameVault - Download Your Favorite Games</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0f;
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1rem 2rem;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #a0a0b0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 10rem 2rem 5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #ffffff, #a0a0ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #8888aa;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(102, 126, 234, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: #667eea;
+            margin-bottom: 2rem;
+        }
+
+        /* Games Grid */
+        .games-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 2rem 6rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #8888aa;
+            font-size: 1.1rem;
+            margin-bottom: 4rem;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Game Card */
+        .game-card {
+            background: #12121a;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .game-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.15);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+
+        .game-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .game-info {
+            padding: 1.8rem;
+        }
+
+        .game-category {
+            display: inline-block;
+            background: rgba(102, 126, 234, 0.15);
+            color: #667eea;
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.8rem;
+        }
+
+        .game-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+        }
+
+        .game-description {
+            color: #8888aa;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .game-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .game-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+            color: #6a6a80;
+        }
+
+        .game-meta i {
+            color: #667eea;
+        }
+
+        /* Download Button */
+        .download-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .download-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Platform Selection Modal */
+        .platform-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .platform-overlay.active {
+            display: flex;
+        }
+
+        .platform-modal {
+            background: #1a1a2e;
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: modalIn 0.3s ease;
+        }
+
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .platform-modal h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .platform-modal p {
+            color: #8888aa;
+            margin-bottom: 2rem;
+        }
+
+        .platform-options {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .platform-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.5rem 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #ffffff;
+            min-width: 120px;
+        }
+
+        .platform-option:hover {
+            background: rgba(102, 126, 234, 0.1);
+            border-color: rgba(102, 126, 234, 0.5);
+            transform: translateY(-4px);
+        }
+
+        .platform-option i {
+            font-size: 2.5rem;
+            color: #667eea;
+        }
+
+        .platform-option span {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            color: #8888aa;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: #ffffff;
+        }
+
+        .platform-modal {
+            position: relative;
+        }
+
+        /* Footer */
+        footer {
+            background: #0d0d14;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            color: #5a5a70;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .platform-options {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">GameVault</div>
+            <ul class="nav-links">
+                <li><a href="#games">Games</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-badge"><i class="fas fa-gamepad"></i> &nbsp;Premium Game Downloads</div>
+        <h1>Download the Best<br>Games for Free</h1>
+        <p>Get access to the latest and most popular games. Download instantly for PC, Android, and iOS platforms.</p>
+    </section>
+
+    <!-- Games Section -->
+    <section class="games-section" id="games">
+        <h2 class="section-title">Featured Games</h2>
+        <p class="section-subtitle">Choose your next adventure from our top picks</p>
+
+        <div class="games-grid">
+
+            <!-- Game 1: Tomodachi Life -->
+            <div class="game-card">
+                <img src="https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70010000068694/32250e40f96c4cd9960f21e231be5bbb0d0a26aa16b83ade1e4cd65e54b6f4cf" alt="Tomodachi Life: Living the Dream" class="game-image">
+                <div class="game-info">
+                    <span class="game-category">Simulation</span>
+                    <h3 class="game-title">Tomodachi Life: Living the Dream</h3>
+                    <p class="game-description">Create Mii characters and watch them live out hilarious and unpredictable lives on a quirky island full of surprises.</p>
+                    <div class="game-meta">
+                        <span><i class="fas fa-star"></i> 4.8</span>
+                        <span><i class="fas fa-download"></i> 2.5M+</span>
+                        <span><i class="fas fa-hard-drive"></i> 3.2 GB</span>
+                    </div>
+                    <button class="download-btn" onclick="openPlatformModal('Tomodachi Life: Living the Dream')">
+                        <i class="fas fa-download"></i> Download Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- Game 2: Thrifty Business -->
+            <div class="game-card">
+                <img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2050510/header.jpg" alt="Thrifty Business" class="game-image">
+                <div class="game-info">
+                    <span class="game-category">Strategy</span>
+                    <h3 class="game-title">Thrifty Business</h3>
+                    <p class="game-description">Run your own thrift store empire! Buy, sell, and trade items to build your business from the ground up in this addictive simulation.</p>
+                    <div class="game-meta">
+                        <span><i class="fas fa-star"></i> 4.6</span>
+                        <span><i class="fas fa-download"></i> 1.8M+</span>
+                        <span><i class="fas fa-hard-drive"></i> 2.1 GB</span>
+                    </div>
+                    <button class="download-btn" onclick="openPlatformModal('Thrifty Business')">
+                        <i class="fas fa-download"></i> Download Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- Game 3: Subnautica 2 -->
+            <div class="game-card">
+                <img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1908040/header.jpg" alt="Subnautica 2" class="game-image">
+                <div class="game-info">
+                    <span class="game-category">Adventure / Survival</span>
+                    <h3 class="game-title">Subnautica 2</h3>
+                    <p class="game-description">Dive into an alien underwater world filled with wonder and peril. Craft equipment, pilot submarines, and explore the deep ocean.</p>
+                    <div class="game-meta">
+                        <span><i class="fas fa-star"></i> 4.9</span>
+                        <span><i class="fas fa-download"></i> 5.2M+</span>
+                        <span><i class="fas fa-hard-drive"></i> 8.5 GB</span>
+                    </div>
+                    <button class="download-btn" onclick="openPlatformModal('Subnautica 2')">
+                        <i class="fas fa-download"></i> Download Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- Game 4: Roblox Beta -->
+            <div class="game-card">
+                <img src="https://blog.roblox.com/wp-content/uploads/2023/09/RTC_Blog_Header.png" alt="Roblox Beta" class="game-image">
+                <div class="game-info">
+                    <span class="game-category">Sandbox / Social</span>
+                    <h3 class="game-title">Roblox Beta</h3>
+                    <p class="game-description">Experience the next generation of Roblox with new graphics, features, and millions of user-created games to explore and enjoy.</p>
+                    <div class="game-meta">
+                        <span><i class="fas fa-star"></i> 4.7</span>
+                        <span><i class="fas fa-download"></i> 10M+</span>
+                        <span><i class="fas fa-hard-drive"></i> 1.8 GB</span>
+                    </div>
+                    <button class="download-btn" onclick="openPlatformModal('Roblox Beta')">
+                        <i class="fas fa-download"></i> Download Now
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Platform Selection Modal -->
+    <div class="platform-overlay" id="platformOverlay">
+        <div class="platform-modal">
+            <button class="close-modal" onclick="closePlatformModal()"><i class="fas fa-times"></i></button>
+            <h3 id="modalGameTitle">Select Platform</h3>
+            <p>Choose your platform to start downloading</p>
+            <div class="platform-options">
+                <a href="#" class="platform-option" id="pcDownload" onclick="startDownload('pc')">
+                    <i class="fas fa-desktop"></i>
+                    <span>PC</span>
+                </a>
+                <a href="#" class="platform-option" id="androidDownload" onclick="startDownload('android')">
+                    <i class="fab fa-android"></i>
+                    <span>Android</span>
+                </a>
+                <a href="#" class="platform-option" id="iosDownload" onclick="startDownload('ios')">
+                    <i class="fab fa-apple"></i>
+                    <span>iOS</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 GameVault. All rights reserved. | All game trademarks belong to their respective owners.</p>
+    </footer>
+
+    <script>
+        let currentGame = '';
+
+        // Download links for each game per platform
+        const downloadLinks = {
+            'Tomodachi Life: Living the Dream': {
+                pc: 'https://www.nintendo.com/us/store/products/tomodachi-life-living-the-dream-switch/',
+                android: 'https://play.google.com/store',
+                ios: 'https://apps.apple.com'
+            },
+            'Thrifty Business': {
+                pc: 'https://store.steampowered.com/app/2050510/Thrifty_Business/',
+                android: 'https://play.google.com/store',
+                ios: 'https://apps.apple.com'
+            },
+            'Subnautica 2': {
+                pc: 'https://store.steampowered.com/app/1908040/Subnautica_2/',
+                android: 'https://play.google.com/store',
+                ios: 'https://apps.apple.com'
+            },
+            'Roblox Beta': {
+                pc: 'https://www.roblox.com/download',
+                android: 'https://play.google.com/store/apps/details?id=com.roblox.client',
+                ios: 'https://apps.apple.com/app/roblox/id431946152'
+            }
+        };
+
+        function openPlatformModal(gameName) {
+            currentGame = gameName;
+            document.getElementById('modalGameTitle').textContent = gameName;
+            document.getElementById('platformOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePlatformModal() {
+            document.getElementById('platformOverlay').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function startDownload(platform) {
+            const link = downloadLinks[currentGame][platform];
+            if (link) {
+                window.open(link, '_blank');
+            }
+            closePlatformModal();
+        }
+
+        // Close modal on overlay click
+        document.getElementById('platformOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePlatformModal();
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closePlatformModal();
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
